@@ -1,0 +1,27 @@
+---
+export interface Props {
+	title: string;
+	description: string;
+	image: string;
+	alt: string;
+	index: number;
+}
+
+const { title, description, image, alt, index } = Astro.props;
+const projectNum = index.toString().padStart(2, "0");
+
+---
+<li class="py-6 border-t last-of-type:border-b sm:py-9">
+	<article class="sm:flex gap-x-16 items-center">
+		<span class="font-bold">{projectNum}</span>
+
+		<div class="mt-2 sm:mt-0 shrink-0">
+			<img src={image} alt={alt} width="164" />
+		</div>
+
+		<div class="mt-6 sm:mt-0">
+			<h3 class="text-dxs sm:text-dsm font-bold" set:html={title}> </h3>
+			<p class="mt-2">{description}</p>
+		</div>
+	</article>
+</li>

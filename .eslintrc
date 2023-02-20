@@ -1,0 +1,45 @@
+{
+	"extends": [ "@antfu/eslint-config", "plugin:astro/recommended", "plugin:jsx-a11y/recommended" ],
+	"overrides": [
+		{
+			// Define the configuration for `.astro` file.
+			"files": [ "*.astro" ],
+			// Allows Astro components to be parsed.
+			"parser": "astro-eslint-parser",
+			// Parse the script in `.astro` as TypeScript by adding the following configuration.
+			// It"s the setting you need when using TypeScript.
+			"parserOptions": {
+				"parser": "@typescript-eslint/parser",
+				"extraFileExtensions": [ ".astro" ]
+			}
+		}
+	],
+	"rules": {
+		// Indentation
+		"no-tabs": 0,
+		"indent": 0,
+		"@typescript-eslint/indent": [ "error", "tab" ],
+		"vue/html-indent": [ "error", "tab" ],
+		"jsonc/indent": [ "error", "tab" ],
+
+		// Semicolon
+		"semi": [ "error", "always" ],
+		"@typescript-eslint/semi": [ "error", "always" ],
+		"@typescript-eslint/member-delimiter-style": [ "error", { "multiline": { "delimiter": "semi", "requireLast": true } } ],
+
+		// Curly Braces
+		"curly": 0,
+		"brace-style": [ "error", "1tbs" ],
+		"@typescript-eslint/brace-style": [ "error", "1tbs" ],
+
+		// JS Styling
+		"no-new": 0,
+		"dot-notation": 0,
+		"no-console": 0,
+		"@typescript-eslint/no-this-alias": 0,
+
+		// Quotation
+		"quotes": [ "error", "double", { "avoidEscape": true } ],
+		"@typescript-eslint/quotes": [ "error", "double", { "avoidEscape": true } ]
+	}
+}
