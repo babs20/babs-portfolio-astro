@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/33ef2456-22b4-4347-aef1-ada4bb8c9627/deploy-status)](https://app.netlify.com/sites/bradyblair/deploys)
+
 # Astro Starter Kit: Basics
 
 ```
