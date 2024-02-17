@@ -1,5 +1,5 @@
 ---
-
+import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
 
 import SectionHeader from "../components/SectionHeader.astro";
@@ -16,170 +16,236 @@ import projectFourImg from "../images/project-4.png?url";
 import projectFiveImg from "../images/project-5.png?url";
 
 interface IProject {
-	title: string;
-	description: string;
-	image: string;
+  title: string;
+  description: string;
+  image: string;
 }
 
 const projects: IProject[] = [
-	{
-		title: "Semper Liberi",
-		description: "The local non-profit organization, Semper Liberi, underwent a significant renovation of its website, utilizing the latest web development technology. The website now boasts a cutting-edge design and improved user experience, enhancing its aesthetic appeal and providing a more efficient and user-friendly experience for visitors.",
-		image: projectOneImg,
-	},
-	{
-		title: "Streaming License and <br class=\"hidden md:block\">Auto Reporting Integration",
-		description: "The implementation of a new product on the website features a product page and a third-party API integration for importing setlists. The use of Vue technology improved the user experience of the setlist import flow compared to the previous legacy .NET Web Forms technology.",
-		image: projectTwoImg,
-	},
-	{
-		title: "Musician's Practice App <br class=\"hidden md:block\">with Looping and Instrument Isolation",
-		description: "Developed a new feature for the RehearsalMix Player enabling custom song arrangements in the ChartBuilder app. Addressed iOS WebAudio API challenges for efficient large audio file support with low latency and smooth rearrangement. Feature received positive feedback and reduced data caching, resolving crashing issues.",
-		image: projectThreeImg,
-	},
-	{
-		title: "Improved Developer Workflow <br class=\"hidden md:block\">and Documentation",
-		description: "The development team's workflow was improved with a focus on streamlining and removing obstacles. Adoption of a new build system improved build and TypeScript file speeds. Documentation was also improved for a more productive environment.",
-		image: projectFourImg,
-	},
-	{
-		title: "Contributions to Open Source Projects",
-		description: "Contributed to open source projects, including Elastic UI and SVG-Sprite, showcasing passion for software development and a commitment to improving the web for all. Continuously seeking ways to support other open source projects and make a positive impact on the software development community.",
-		image: projectFiveImg,
-	},
+  {
+    title: "Semper Liberi",
+    description:
+      "The local non-profit organization, Semper Liberi, underwent a significant renovation of its website, utilizing the latest web development technology. The website now boasts a cutting-edge design and improved user experience, enhancing its aesthetic appeal and providing a more efficient and user-friendly experience for visitors.",
+    image: projectOneImg,
+  },
+  {
+    title:
+      'Streaming License and <br class="hidden md:block">Auto Reporting Integration',
+    description:
+      "The implementation of a new product on the website features a product page and a third-party API integration for importing setlists. The use of Vue technology improved the user experience of the setlist import flow compared to the previous legacy .NET Web Forms technology.",
+    image: projectTwoImg,
+  },
+  {
+    title:
+      'Musician\'s Practice App <br class="hidden md:block">with Looping and Instrument Isolation',
+    description:
+      "Developed a new feature for the RehearsalMix Player enabling custom song arrangements in the ChartBuilder app. Addressed iOS WebAudio API challenges for efficient large audio file support with low latency and smooth rearrangement. Feature received positive feedback and reduced data caching, resolving crashing issues.",
+    image: projectThreeImg,
+  },
+  {
+    title:
+      'Improved Developer Workflow <br class="hidden md:block">and Documentation',
+    description:
+      "The development team's workflow was improved with a focus on streamlining and removing obstacles. Adoption of a new build system improved build and TypeScript file speeds. Documentation was also improved for a more productive environment.",
+    image: projectFourImg,
+  },
+  {
+    title: "Contributions to Open Source Projects",
+    description:
+      "Contributed to open source projects, including Elastic UI and SVG-Sprite, showcasing passion for software development and a commitment to improving the web for all. Continuously seeking ways to support other open source projects and make a positive impact on the software development community.",
+    image: projectFiveImg,
+  },
 ];
 ---
 
 <Layout title="Brady Blair | Frontend Developer">
-	<main class="flex flex-col gap-y-16 sm:gap-y-32 mt-16 md:px-20">
-		<!-- Header -->
-		<section>
-			<h1 class="text-dmd md:text-dlg font-extrabold text-center mx-auto">
-				Crafting Beautiful User Experiences <br class="hidden md:block">
-				with Expert Frontend Development.
-			</h1>
+  <main class="flex flex-col gap-y-16 sm:gap-y-32 mt-16 md:px-20">
+    <!-- Header -->
+    <section>
+      <h1 class="text-dmd md:text-dlg font-extrabold text-center mx-auto">
+        Crafting Beautiful User Experiences <br class="hidden md:block" />
+        with Expert Frontend Development.
+      </h1>
 
-			<p class="text-lg text-center mt-6 md:text-xl max-w-[768px] md:max-w-[960px] mx-auto">
-				I have a passion for creating visually appealing and intuitive websites
-				and applications. I bring a unique blend of technical expertise and
-				creative vision to each project, delivering high-quality results that meet
-				and exceed expectations.
-			</p>
-		</section>
+      <p
+        class="text-lg text-center mt-6 md:text-xl max-w-[768px] md:max-w-[960px] mx-auto"
+      >
+        I have a passion for creating visually appealing and intuitive websites
+        and applications. I bring a unique blend of technical expertise and
+        creative vision to each project, delivering high-quality results that
+        meet and exceed expectations.
+      </p>
+    </section>
 
-		<!-- About Me -->
-		<section class="flex flex-col items-center sm:flex-row" id="about">
-			<div class="flex flex-col items-center">
-				<div class="rounded-full w-[232px] h-[232px] bg-white flex items-center justify-center">
-					<img src={brady} alt="Brady Blair" class="rounded-full max-w-[224px]" width="224" height="224">
-				</div>
+    <!-- About Me -->
+    <section class="flex flex-col items-center sm:flex-row" id="about">
+      <div class="flex flex-col items-center">
+        <div
+          class="rounded-full w-[232px] h-[232px] bg-white flex items-center justify-center"
+        >
+          <Image
+            src={brady}
+            alt="Brady Blair"
+            class="rounded-full max-w-[224px]"
+            width="224"
+            height="224"
+            loading="eager"
+          />
+        </div>
 
-				<Socials />
-			</div>
+        <Socials />
+      </div>
 
-			<article class="mt-12 sm:ml-10 md:ml-20 sm:mt-0">
-				<h2 class="text-dsm font-bold">From Rustic Roots to High-Tech Heights</h2>
+      <article class="mt-12 sm:ml-10 md:ml-20 sm:mt-0">
+        <h2 class="text-dsm font-bold">
+          From Rustic Roots to High-Tech Heights
+        </h2>
 
-				<div class="flex flex-col md:mt-4 md:flex-row">
-					<p class="mt-4 md:mt-0">
-						Hello, my name is <b>Brady Blair</b>, and I'm a tech-savvy engineer from
-						<b>Martinsburg, West Virginia</b>. But these days, you can find me in the
-						Colorado mountains and <b>loving every minute</b> of it!
+        <div class="flex flex-col md:mt-4 md:flex-row">
+          <p class="mt-4 md:mt-0">
+            Hello, my name is <b>Brady Blair</b>, and I'm a tech-savvy engineer
+            from
+            <b>Martinsburg, West Virginia</b>. But these days, you can find me
+            in the Colorado mountains and <b>loving every minute</b> of it!
 
-						<br /><br />
+            <br /><br />
 
-						I got a job as a Lead Engineer for an LED screen startup after college. However,
-						the <b>programming bug bit me</b> in 2020, and I've been hooked ever since.
-					</p>
+            I got a job as a Lead Engineer for an LED screen startup after
+            college. However, the <b>programming bug bit me</b> in 2020, and I've
+            been hooked ever since.
+          </p>
 
-					<p class="mt-4 md:mt-0 md:ml-8">
-						When I'm not at my computer, I like to spend time with my girlfriend,
-						<b>Sarah Rose</b>. We share a passion for <b>technology</b> and currently have
-						<b>one cat</b>, a sweet 18-year-old gentleman named <b>Bubba</b>(=^._.^=) ᵐᵉᵒʷˎˊ˗
+          <p class="mt-4 md:mt-0 md:ml-8">
+            When I'm not at my computer, I like to spend time with my
+            girlfriend,
+            <b>Sarah Rose</b>. We share a passion for <b>technology</b> and currently
+            have
+            <b>one cat</b>, a sweet 18-year-old gentleman named <b>Bubba</b
+            >(=^._.^=) ᵐᵉᵒʷˎˊ˗
 
-						<br /><br />
+            <br /><br />
 
-						I enjoy <b>creating and discovering new things</b>, particularly when they involve
-						<b>technology and programming</b>. So, let's nerd out and create something <b>awesome</b>
-						together!
-					</p>
-				</div>
-			</article>
-		</section>
+            I enjoy <b>creating and discovering new things</b>, particularly
+            when they involve
+            <b>technology and programming</b>. So, let's nerd out and create
+            something <b>awesome</b>
+            together!
+          </p>
+        </div>
+      </article>
+    </section>
 
-		<!-- Projects -->
-		<section id="projects">
-			<SectionHeader
-				title="From Concepts to Creation"
-				description="Transforming ideas into game-changing solutions, here are some of the projects I am proud to have contributed to."
-			/>
+    <!-- Projects -->
+    <section id="projects">
+      <SectionHeader
+        title="From Concepts to Creation"
+        description="Transforming ideas into game-changing solutions, here are some of the projects I am proud to have contributed to."
+      />
 
-			<ol class="mt-12">
-				{projects.map(({ title, description, image }, index) => {
-					return (
-						<Project
-							index={index + 1}
-							title={title}
-							description={description}
-							image={image}
-							alt={title}
-						/>
-					);
-				})
-				}
-			</ol>
-		</section>
+      <ol class="mt-12">
+        {
+          projects.map(({ title, description, image }, index) => {
+            return (
+              <Project
+                index={index + 1}
+                title={title}
+                description={description}
+                image={image}
+                alt={title}
+              />
+            );
+          })
+        }
+      </ol>
+    </section>
 
-		<!-- Hard Skills -->
-		<section id="skills">
-			<SectionHeader
-				title="Technical Proficiencies"
-				description="Keeping up with the fast-paced front-end ecosystem, one language and framework at a time."
-			/>
+    <!-- Hard Skills -->
+    <section id="skills">
+      <SectionHeader
+        title="Technical Proficiencies"
+        description="Keeping up with the fast-paced front-end ecosystem, one language and framework at a time."
+      />
 
-			<div class="font-mono mt-12 flex flex-col gap-y-8">
-				<TechStack stack="Languages and Markup" technologies={["TypeScript", "JavaScript", "HTML5", "CSS", "SQL", "C#", "Ruby"]}/>
+      <div class="font-mono mt-12 flex flex-col gap-y-8">
+        <TechStack
+          stack="Languages and Markup"
+          technologies={[
+            "TypeScript",
+            "JavaScript",
+            "HTML5",
+            "CSS",
+            "SQL",
+            "C#",
+            "Ruby",
+          ]}
+        />
 
-				<TechStack stack="Frameworks and Libraries" technologies={["Vue.js", "Nuxt", "React", "Next.js", "Sass", "Node.js", "Express", ".NET Core", "Rails"]}/>
+        <TechStack
+          stack="Frameworks and Libraries"
+          technologies={[
+            "Vue.js",
+            "Nuxt",
+            "React",
+            "Next.js",
+            "Sass",
+            "Node.js",
+            "Express",
+            ".NET Core",
+            "Rails",
+          ]}
+        />
 
-				<TechStack stack="Databases" technologies={["PostgreSQL", "Azure", "IndexedDB", "Microsoft SQL Server"]}/>
+        <TechStack
+          stack="Databases"
+          technologies={[
+            "PostgreSQL",
+            "Azure",
+            "IndexedDB",
+            "Microsoft SQL Server",
+          ]}
+        />
 
-				<TechStack stack="Technical" technologies={["Jira", "GitHub", "CI/CD", "Docker", "REST APIs"]}/>
-			</div>
-		</section>
+        <TechStack
+          stack="Technical"
+          technologies={["Jira", "GitHub", "CI/CD", "Docker", "REST APIs"]}
+        />
+      </div>
+    </section>
 
-		<!-- Soft Skills -->
-		<section>
-			<SectionHeader
-				title="The Finishing Touches"
-				description="All of this is encompassed by a love of collaboration and a desire to iterate."
-			/>
+    <!-- Soft Skills -->
+    <section>
+      <SectionHeader
+        title="The Finishing Touches"
+        description="All of this is encompassed by a love of collaboration and a desire to iterate."
+      />
 
-			<div class="flex flex-col gap-y-12 mt-12 sm:flex-row sm:gap-x-8 items-center md:gap-y-16">
-				<SoftSkill
-					title="Communication"
-					description="I express technical concepts clearly and concisely, with a passion for documentation."
-					icon="message-chat-circle"
-				/>
+      <div
+        class="flex flex-col gap-y-12 mt-12 sm:flex-row sm:gap-x-8 items-center md:gap-y-16"
+      >
+        <SoftSkill
+          title="Communication"
+          description="I express technical concepts clearly and concisely, with a passion for documentation."
+          icon="message-chat-circle"
+        />
 
-				<SoftSkill
-					title="Creativity"
-					description="I love thinking outside-the-box, to build engaging and user-friendly experiences."
-					icon="palette"
-				/>
+        <SoftSkill
+          title="Creativity"
+          description="I love thinking outside-the-box, to build engaging and user-friendly experiences."
+          icon="palette"
+        />
 
-				<SoftSkill
-					title="Attention to Detail"
-					description="I deliver complete work and ensure implementation of the design to specifications."
-					icon="glasses"
-				/>
+        <SoftSkill
+          title="Attention to Detail"
+          description="I deliver complete work and ensure implementation of the design to specifications."
+          icon="glasses"
+        />
 
-				<SoftSkill
-					title="Problem Solving"
-					description="I enjoy the challenge of researching and testing to find an effective solution."
-					icon="puzzle-piece"
-				/>
-			</div>
-		</section>
-	</main>
+        <SoftSkill
+          title="Problem Solving"
+          description="I enjoy the challenge of researching and testing to find an effective solution."
+          icon="puzzle-piece"
+        />
+      </div>
+    </section>
+  </main>
 </Layout>

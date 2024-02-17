@@ -1,16 +1,29 @@
 ---
 import Icon from "./Icon.astro";
 ---
-<footer class="mt-32 flex flex-col gap-y-2 sm:flex-row sm:justify-between sm:items-center gap-x-6">
+
+<footer
+	class="mt-32 flex flex-col gap-y-2 sm:flex-row sm:justify-between sm:items-center gap-x-6"
+>
 	<div class="flex justify-between items-center shrink-0 gap-x-6">
 		<span class="text-xs">Copyright ©2023 All rights reserved</span>
 
 		<div class="flex gap-x-4">
-			<a aria-label="Vist my LinkedIn Profile" href="https://www.linkedin.com/in/bradyblair20/" target="_blank" rel="noopener noreferrer">
+			<a
+				aria-label="Vist my LinkedIn Profile"
+				href="https://www.linkedin.com/in/bradyblair20/"
+				target="_blank"
+				rel="noopener noreferrer"
+			>
 				<Icon icon="linkedin" />
 			</a>
 
-			<a aria-label="Vist my GitHub Profile" href="https://github.com/babs20/" target="_blank" rel="noopener noreferrer">
+			<a
+				aria-label="Vist my GitHub Profile"
+				href="https://github.com/babs20/"
+				target="_blank"
+				rel="noopener noreferrer"
+			>
 				<Icon icon="github" />
 			</a>
 		</div>
@@ -18,5 +31,7 @@ import Icon from "./Icon.astro";
 
 	<div class="h-[1px] w-full bg-white hidden sm:block"></div>
 
-	<span class="text-xs shrink-0">Website Design and Development by Brady Blair</span>
+	<span class="text-xs shrink-0"
+	>Website Design and Development by Brady Blair</span
+	>
 </footer>

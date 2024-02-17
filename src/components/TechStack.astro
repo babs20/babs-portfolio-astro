@@ -1,17 +1,16 @@
 ---
 export interface Props {
-	stack: string;
-	technologies: string[];
+  stack: string;
+  technologies: string[];
 }
 
 const { stack, technologies } = Astro.props;
 ---
-<div class="flex flex-col">
-	<ul class="flex gap-x-6 gap-y-3 flex-wrap pb-3 border-b sm:gap-x-16">
-		{technologies.map(technology => (
-			<li class="font-bold">{technology}</li>
-		))}
-	</ul>
 
-	<h3 class="text-sm mt-1 text-secondary">{stack}</h3>
+<div class="flex flex-col">
+  <ul class="flex gap-x-6 gap-y-3 flex-wrap pb-3 border-b sm:gap-x-16">
+    {technologies.map((technology) => <li class="font-bold">{technology}</li>)}
+  </ul>
+
+  <h3 class="text-sm mt-1 text-secondary">{stack}</h3>
 </div>
