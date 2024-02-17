@@ -11,8 +11,8 @@ module.exports = {
         secondary: "#c2c2c2",
       },
       fontFamily: {
-        sans: ["Inter", ...defaultTheme.fontFamily.sans],
-        mono: ["Roboto Mono", ...defaultTheme.fontFamily.mono],
+        sans: ["Inter Variable", ...defaultTheme.fontFamily.sans],
+        mono: ["Roboto Mono Variable", ...defaultTheme.fontFamily.mono],
       },
     },
     fontSize: {
