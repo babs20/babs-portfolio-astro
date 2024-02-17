@@ -8,5 +8,6 @@ import sitemap from "@astrojs/sitemap";
 // https://astro.build/config
 export default defineConfig({
   integrations: [tailwind(), sitemap()],
-  output: "static"
+  output: "static",
+  site: 'https://www.bradyblair.com'
 });

@@ -1,5 +1,6 @@
 ---
 import { Image } from "astro:assets";
+
 import Layout from "../layouts/Layout.astro";
 
 import SectionHeader from "../components/SectionHeader.astro";
@@ -8,17 +9,12 @@ import Project from "../components/Project.astro";
 import TechStack from "../components/TechStack.astro";
 import SoftSkill from "../components/SoftSkill.astro";
 
-import brady from "../images/brady.jpg?url";
-import projectOneImg from "../images/project-1.png?url";
-import projectTwoImg from "../images/project-2.png?url";
-import projectThreeImg from "../images/project-3.png?url";
-import projectFourImg from "../images/project-4.png?url";
-import projectFiveImg from "../images/project-5.png?url";
+import brady from "../images/brady.jpg";
 
 interface IProject {
   title: string;
   description: string;
-  image: string;
+  imagePath: string;
 }
 
 const projects: IProject[] = [
@@ -26,34 +22,34 @@ const projects: IProject[] = [
     title: "Semper Liberi",
     description:
       "The local non-profit organization, Semper Liberi, underwent a significant renovation of its website, utilizing the latest web development technology. The website now boasts a cutting-edge design and improved user experience, enhancing its aesthetic appeal and providing a more efficient and user-friendly experience for visitors.",
-    image: projectOneImg,
+    imagePath: "/src/images/projects/project-1.png",
   },
   {
     title:
       'Streaming License and <br class="hidden md:block">Auto Reporting Integration',
     description:
       "The implementation of a new product on the website features a product page and a third-party API integration for importing setlists. The use of Vue technology improved the user experience of the setlist import flow compared to the previous legacy .NET Web Forms technology.",
-    image: projectTwoImg,
+    imagePath: "/src/images/projects/project-2.png",
   },
   {
     title:
       'Musician\'s Practice App <br class="hidden md:block">with Looping and Instrument Isolation',
     description:
       "Developed a new feature for the RehearsalMix Player enabling custom song arrangements in the ChartBuilder app. Addressed iOS WebAudio API challenges for efficient large audio file support with low latency and smooth rearrangement. Feature received positive feedback and reduced data caching, resolving crashing issues.",
-    image: projectThreeImg,
+    imagePath: "/src/images/projects/project-3.png",
   },
   {
     title:
       'Improved Developer Workflow <br class="hidden md:block">and Documentation',
     description:
       "The development team's workflow was improved with a focus on streamlining and removing obstacles. Adoption of a new build system improved build and TypeScript file speeds. Documentation was also improved for a more productive environment.",
-    image: projectFourImg,
+    imagePath: "/src/images/projects/project-4.png",
   },
   {
     title: "Contributions to Open Source Projects",
     description:
       "Contributed to open source projects, including Elastic UI and SVG-Sprite, showcasing passion for software development and a commitment to improving the web for all. Continuously seeking ways to support other open source projects and make a positive impact on the software development community.",
-    image: projectFiveImg,
+    imagePath: "/src/images/projects/project-5.png",
   },
 ];
 ---
@@ -144,13 +140,13 @@ const projects: IProject[] = [
 
       <ol class="mt-12">
         {
-          projects.map(({ title, description, image }, index) => {
+          projects.map(({ title, description, imagePath }, index) => {
             return (
               <Project
                 index={index + 1}
                 title={title}
                 description={description}
-                image={image}
+                imagePath={imagePath}
                 alt={title}
               />
             );
