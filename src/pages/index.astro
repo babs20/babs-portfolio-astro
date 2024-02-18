@@ -15,40 +15,54 @@ interface IProject {
   title: string;
   description: string;
   imagePath: string;
+  projectLink?: string;
 }
 
 const projects: IProject[] = [
   {
     title: "Semper Liberi",
     description:
-      "The local non-profit organization, Semper Liberi, underwent a significant renovation of its website, utilizing the latest web development technology. The website now boasts a cutting-edge design and improved user experience, enhancing its aesthetic appeal and providing a more efficient and user-friendly experience for visitors.",
-    imagePath: "/src/images/projects/project-1.png",
+      "I developed a significant renovation of a West Virginia based non-profit organization, Semper Liberi's website, incorporating the latest web development technology. The website now features a cutting-edge design and an enhanced user experience, improving its aesthetic appeal and offering a more efficient and user-friendly experience for visitors. The website also includes a yearly golf tournament registration form and a donation page, which has increased the organization's online presence and revenue.",
+    imagePath: "/src/images/projects/semper-li-project.png",
+    projectLink: "https://semperli.org",
   },
   {
-    title:
-      'Streaming License and <br class="hidden md:block">Auto Reporting Integration',
+    title: "Big I Illinois Website Redesign and Storyblok CMS Integration",
     description:
-      "The implementation of a new product on the website features a product page and a third-party API integration for importing setlists. The use of Vue technology improved the user experience of the setlist import flow compared to the previous legacy .NET Web Forms technology.",
-    imagePath: "/src/images/projects/project-2.png",
+      "I was the main developer on the Big I Illinois website redesign, integrating the Storyblok CMS to provide a more user-friendly and efficient experience for the client. I worked closely with the project manager to ensure the design was implemented to specifications. Together we delivered a high-quality product that met and exceeded the client's expectations. One of the things I would like to highlight is the use of the Next.js App Router which takes advantage of ISR to provide a fast and up-to-date experience for the user as soon content is updated in the CMS without requiring a full rebuild.",
+    imagePath: "/src/images/projects/big-i-project.png",
+    projectLink: "https://www.ilbigi.org",
   },
   {
-    title:
-      'Musician\'s Practice App <br class="hidden md:block">with Looping and Instrument Isolation',
+    title: "Streaming License and Auto Reporting Integration",
     description:
-      "Developed a new feature for the RehearsalMix Player enabling custom song arrangements in the ChartBuilder app. Addressed iOS WebAudio API challenges for efficient large audio file support with low latency and smooth rearrangement. Feature received positive feedback and reduced data caching, resolving crashing issues.",
+      "I was a part of the frontend implementation, which included a product page and third-party API integration for importing setlists from Planning Center. By using Vue.js, I enhanced the user experience of the setlist import flow, making it more modern and responsive compared to the previous experience using the legacy .NET Web Forms technology.",
+    imagePath: "/src/images/projects/streaming-project.png",
+    projectLink: "https://www.multitracks.com/products/churchstreaminglicense/",
+  },
+  {
+    title: "Musician's Practice App with Looping and Instrument Isolation",
+    description:
+      "I developed a new feature for the RehearsalMix Player that enables custom song arrangements in the ChartBuilder app. I tackled iOS WebAudio API challenges to support large audio files efficiently with low latency and smooth rearrangement. This feature received positive feedback and significantly reduced data caching issues, resolving crashing problems.",
+    imagePath: "/src/images/projects/practice-app-project.png",
+    projectLink: "https://www.multitracks.com/rehearsalmix/",
+  },
+  {
+    title: "Monorepo and Shared Component Library",
+    description:
+      "I contributed by implementing a monorepo and shared component library, enhancing our development process and shortening the timeframe for implementing new features in our client's sites. I helped to conceptualize and design the framework for various projects that would utilize these packages. This shared component library has elevated the consistency and quality of our codebase, while the monorepo has simplified project management and maintenance",
     imagePath: "/src/images/projects/project-3.png",
   },
   {
-    title:
-      'Improved Developer Workflow <br class="hidden md:block">and Documentation',
+    title: "Improved Developer Workflow and Documentation",
     description:
-      "The development team's workflow was improved with a focus on streamlining and removing obstacles. Adoption of a new build system improved build and TypeScript file speeds. Documentation was also improved for a more productive environment.",
-    imagePath: "/src/images/projects/project-4.png",
+      "I focused on streamlining and removing obstacles from our development team's workflow. Adopting a new build system improved our build and TypeScript file speeds. I also enhanced our documentation for a more productive environment. These changes resulted in a 2x to 4x decrease in build times for TypeScript, asset bundling, and Sass files. The improved documentation led to a reduction in the time it takes for new developers to become productive on the project.",
+    imagePath: "/src/images/projects/project-2.png",
   },
   {
     title: "Contributions to Open Source Projects",
     description:
-      "Contributed to open source projects, including Elastic UI and SVG-Sprite, showcasing passion for software development and a commitment to improving the web for all. Continuously seeking ways to support other open source projects and make a positive impact on the software development community.",
+      "I contributed to open source projects, including Elastic UI and SVG-Sprite, showcasing my passion for software development and a commitment to improving the web for everyone. I'm continuously seeking ways to support other open source projects and make a positive impact on the software development community.",
     imagePath: "/src/images/projects/project-5.png",
   },
 ];
@@ -58,13 +72,14 @@ const projects: IProject[] = [
   <main class="flex flex-col gap-y-16 sm:gap-y-32 mt-16 md:px-20">
     <!-- Header -->
     <section>
-      <h1 class="text-dmd md:text-dlg font-extrabold text-center mx-auto">
-        Crafting Beautiful User Experiences <br class="hidden md:block" />
-        with Expert Frontend Development.
+      <h1
+        class="text-dmd md:text-dlg font-extrabold text-center mx-auto text-balance"
+      >
+        Crafting Beautiful User Experiences with Expert Full Stack Development
       </h1>
 
       <p
-        class="text-lg text-center mt-6 md:text-xl max-w-[768px] md:max-w-[960px] mx-auto"
+        class="text-lg text-center mt-6 md:text-xl font-light max-w-[768px] md:max-w-[960px] mx-auto text-pretty"
       >
         I have a passion for creating visually appealing and intuitive websites
         and applications. I bring a unique blend of technical expertise and
@@ -86,6 +101,7 @@ const projects: IProject[] = [
             width="224"
             height="224"
             loading="eager"
+            densities={[1, 1.5]}
           />
         </div>
 
@@ -93,31 +109,38 @@ const projects: IProject[] = [
       </div>
 
       <article class="mt-12 sm:ml-10 md:ml-20 sm:mt-0">
-        <h2 class="text-dsm font-bold">
-          From Rustic Roots to High-Tech Heights
-        </h2>
+        <h2 class="text-dsm font-bold">About Me</h2>
 
-        <div class="flex flex-col md:mt-4 md:flex-row">
-          <p class="mt-4 md:mt-0">
-            Hello, my name is <b>Brady Blair</b>, and I'm a tech-savvy engineer
-            from
-            <b>Martinsburg, West Virginia</b>. But these days, you can find me
-            in the Colorado mountains and <b>loving every minute</b> of it!
+        <div
+          class="flex flex-col gap-4 md:gap-8 md:mt-4 md:flex-row text-pretty"
+        >
+          <p class="mt-4 md:mt-0 md:w-1/2">
+            Hello, my name is <b>Brady Blair</b>. I'm a tech-savvy engineer
+            based on the east coast with my amazing
+            <em
+              >(<a
+                class="underline hover:text-gray-200 transition-all duration-300 ease-in-out"
+                href="https://sarahrose.dev"
+                target="_blank"
+                rel="noopener noreferrer">and also tech-savvy</a
+              >)</em
+            > wife, <b>Sarah Rose</b> and our 5 cats: <b>Mochi</b>, <b>Miso</b>, <b
+              >Mew Mew</b
+            >, <b>Kimchi</b>, and <b>Saki</b> (=^._.^=) ᵐᵉᵒʷˎˊ˗
 
-            <br /><br />
+            <br />
+            <br />
 
-            I got a job as a Lead Engineer for an LED screen startup after
-            college. However, the <b>programming bug bit me</b> in 2020, and I've
-            been hooked ever since.
+            After graduating college I followed my passion for technology and
+            engineering, which led me to a career in the LED screen industry.
+            However, in late 2019, I discovered my love for programming and have
+            been hooked creating websites and applications ever since.
           </p>
 
-          <p class="mt-4 md:mt-0 md:ml-8">
-            When I'm not at my computer, I like to spend time with my
-            girlfriend,
-            <b>Sarah Rose</b>. We share a passion for <b>technology</b> and currently
-            have
-            <b>one cat</b>, a sweet 18-year-old gentleman named <b>Bubba</b
-            >(=^._.^=) ᵐᵉᵒʷˎˊ˗
+          <p class="mt-4 md:mt-0 md:w-1/2">
+            When I'm not coding, I like to spend time with my wife and our cats,
+            play video games, and watch competive e-sports (Counter Strike and
+            Super Smash Bros. Melee).
 
             <br /><br />
 
@@ -140,17 +163,20 @@ const projects: IProject[] = [
 
       <ol class="mt-12">
         {
-          projects.map(({ title, description, imagePath }, index) => {
-            return (
-              <Project
-                index={index + 1}
-                title={title}
-                description={description}
-                imagePath={imagePath}
-                alt={title}
-              />
-            );
-          })
+          projects.map(
+            ({ title, description, imagePath, projectLink }, index) => {
+              return (
+                <Project
+                  index={index + 1}
+                  title={title}
+                  description={description}
+                  imagePath={imagePath}
+                  alt={title}
+                  projectLink={projectLink}
+                />
+              );
+            },
+          )
         }
       </ol>
     </section>
@@ -159,51 +185,73 @@ const projects: IProject[] = [
     <section id="skills">
       <SectionHeader
         title="Technical Proficiencies"
-        description="Keeping up with the fast-paced front-end ecosystem, one language and framework at a time."
+        description="Keeping up with the fast-paced web development ecosystem, one technology at a time."
       />
 
       <div class="font-mono mt-12 flex flex-col gap-y-8">
         <TechStack
-          stack="Languages and Markup"
+          stack="Programming, Markup, Style and Query Languages"
           technologies={[
             "TypeScript",
             "JavaScript",
+            "C#",
+            "Ruby",
             "HTML5",
             "CSS",
             "SQL",
-            "C#",
-            "Ruby",
+            "GraphQL",
           ]}
         />
 
         <TechStack
-          stack="Frameworks and Libraries"
+          stack="Frontend Technologies"
           technologies={[
+            "Next.js",
+            "React",
             "Vue.js",
             "Nuxt",
-            "React",
-            "Next.js",
+            "Gatsby.js",
+            "Astro",
+            "Vite",
             "Sass",
-            "Node.js",
-            "Express",
-            ".NET Core",
-            "Rails",
           ]}
         />
 
         <TechStack
-          stack="Databases"
+          stack="Backend Technologies"
+          technologies={["Node.js", "Express", ".NET Core", "Rails"]}
+        />
+
+        <TechStack
+          stack="Databases, Services, CMS, and APIs"
           technologies={[
             "PostgreSQL",
             "Azure",
+            "Supabase",
             "IndexedDB",
             "Microsoft SQL Server",
+            "REST",
+            "GraphQL",
+            "Storyblok CMS",
+            "Stripe",
           ]}
         />
 
         <TechStack
-          stack="Technical"
-          technologies={["Jira", "GitHub", "CI/CD", "Docker", "REST APIs"]}
+          stack="Technical and Other Tools"
+          technologies={[
+            "Jira",
+            "Git",
+            "GitHub",
+            "BitBucket",
+            "Netlify",
+            "Vercel",
+            "Docker",
+            "CI/CD",
+            "Monorepos",
+            "Agile/Scrum",
+            "PWAs",
+          ]}
         />
       </div>
     </section>
