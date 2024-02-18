@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://www.bradyblair.com/sitemap.xml
+Sitemap: https://www.bradyblair.com/sitemap-index.xml
