@@ -32,9 +32,33 @@ const { title } = Astro.props;
     <meta property="og:url" content="https://www.bradyblair.com" />
     <meta property="og:image" content="/brady-meta.png" />
   </head>
+
   <body
     class="bg-bg text-white px-4 py-10 lg:px-0 sm:max-w-screen-lg sm:mx-auto antialiased overflow-x-hidden"
   >
+    <noscript>
+      This site requires JavaScript to function properly. Please enable it to
+      continue.
+    </noscript>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-20MWVPRH1N"
+    ></script>
+    <script>
+      // @ts-expect-error
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        // @ts-expect-error
+        dataLayer.push(arguments);
+      }
+
+      // @ts-expect-error
+      gtag("js", new Date());
+
+      // @ts-expect-error
+      gtag("config", "G-20MWVPRH1N");
+    </script>
+
     <Blobs />
     <Header />
     <slot />
