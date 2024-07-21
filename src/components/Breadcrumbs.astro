@@ -1,0 +1,64 @@
+---
+interface Props {
+  slug: string;
+}
+
+const { slug } = Astro.props;
+const crumbs = slug.split("/").filter(Boolean);
+const crumbToTitle = (crumb: string) => crumb.replace(/-/g, " ");
+
+// Generate structured data for breadcrumbs
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: new URL("/", Astro.site).toString(),
+    },
+    ...crumbs.map((crumb, index) => ({
+      "@type": "ListItem",
+      position: index + 2,
+      name: crumbToTitle(crumb),
+      item: new URL(
+        `/${crumbs.slice(0, index + 1).join("/")}`,
+        Astro.site,
+      ).toString(),
+    })),
+  ],
+};
+---
+
+{
+  crumbs.length > 0 && (
+    <nav class="mt-4 text-xs" aria-label="Breadcrumb">
+      <ol class="flex">
+        <li>
+          <a href="/" class="underline inline-block">
+            home
+          </a>
+          <span class="mx-2">&raquo;</span>
+        </li>
+        {crumbs.map((crumb, index) => (
+          <li class="flex items-center">
+            {index === crumbs.length - 1 ? (
+              <span>{crumbToTitle(crumb)}</span>
+            ) : (
+              <a
+                href={`/${crumbs.slice(0, index + 1).join("/")}`}
+                class="underline inline-block"
+              >
+                {crumbToTitle(crumb)}
+              </a>
+            )}
+            {index < crumbs.length - 1 && <span class="mx-2">&raquo;</span>}
+          </li>
+        ))}
+      </ol>
+    </nav>
+  )
+}
+
+<script type="application/ld+json" set:html={JSON.stringify(structuredData)} />

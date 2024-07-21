@@ -1,24 +1,25 @@
 ---
 import { Image } from "astro:assets";
 
-import Layout from "../layouts/Layout.astro";
+import Layout from "@layouts/Layout.astro";
 
-import SectionHeader from "../components/SectionHeader.astro";
-import Socials from "../components/Socials.astro";
-import Project from "../components/Project.astro";
-import TechStack from "../components/TechStack.astro";
-import SoftSkill from "../components/SoftSkill.astro";
+import SectionHeader from "@components/SectionHeader.astro";
+import Socials from "@components/Socials.astro";
+import Project from "@components/Project.astro";
+import TechStack from "@components/TechStack.astro";
+import SoftSkill from "@components/SoftSkill.astro";
 
-import brady from "../images/brady.jpg";
+import brady from "../images/brady-2.jpg";
 
-interface IProject {
+export interface IProject {
   title: string;
   description: string;
   imagePath: string;
   projectLink?: string;
+  learnMoreLink?: string;
 }
 
-const projects: IProject[] = [
+export const projects: IProject[] = [
   {
     title: "Semper Liberi",
     description:
@@ -58,6 +59,7 @@ const projects: IProject[] = [
     description:
       "I focused on streamlining and removing obstacles from our development team's workflow. Adopting a new build system improved our build and TypeScript file speeds. I also enhanced our documentation for a more productive environment. These changes resulted in a 2x to 4x decrease in build times for TypeScript, asset bundling, and Sass files. The improved documentation led to a reduction in the time it takes for new developers to become productive on the project.",
     imagePath: "/src/images/projects/project-2.png",
+    learnMoreLink: "/projects/developer-workflow",
   },
   {
     title: "Contributions to Open Source Projects",
@@ -69,7 +71,7 @@ const projects: IProject[] = [
 ---
 
 <Layout title="Brady Blair | Full Stack Web Engineer">
-  <main class="flex flex-col gap-y-16 sm:gap-y-32 mt-16 md:px-20">
+  <main class="flex flex-col gap-y-16 sm:gap-y-32 mt-8 sm:mt-16">
     <!-- Header -->
     <section>
       <h1
@@ -102,6 +104,7 @@ const projects: IProject[] = [
             height="224"
             loading="eager"
             densities={[1, 1.5]}
+            quality={95}
           />
         </div>
 
@@ -157,14 +160,17 @@ const projects: IProject[] = [
     <!-- Projects -->
     <section id="projects">
       <SectionHeader
-        title="From Concepts to Creation"
-        description="Transforming ideas into game-changing solutions, here are some of the projects I am proud to have contributed to."
+        title="Featured Projects"
+        description="Transforming ideas into tangible sites, solutions, and products, here are some of the projects I am proud to have contributed to."
       />
 
       <ol class="mt-12">
         {
           projects.map(
-            ({ title, description, imagePath, projectLink }, index) => {
+            (
+              { title, description, imagePath, projectLink, learnMoreLink },
+              index,
+            ) => {
               return (
                 <Project
                   index={index + 1}
@@ -173,6 +179,7 @@ const projects: IProject[] = [
                   imagePath={imagePath}
                   alt={title}
                   projectLink={projectLink}
+                  learnMoreLink={learnMoreLink}
                 />
               );
             },

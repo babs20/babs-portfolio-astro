@@ -1,0 +1,237 @@
+---
+import TechStack from "@components/TechStack.astro";
+import Layout from "@layouts/Layout.astro";
+---
+
+<Layout title="Brady Blair | Full Stack Web Engineer">
+  <main class="flex flex-col gap-y-16 sm:gap-y-32 mt-8 sm:mt-16">
+    <!-- Header -->
+    <section class="flex items-center flex-col gap-4 md:gap-32 md:flex-row">
+      <div class="w-full md:w-1/2">
+        <div
+          class="inline-flex px-4 py-1 items-center justify-center bg-balance rounded-full text-white text-xs font-bold bg-pink-600"
+        >
+          <span class="text-xs font-bold text-nowrap"
+            >Front End Development</span
+          >
+        </div>
+
+        <h1 class="text-dmd md:text-dlg font-extrabold text-balance mt-2">
+          Improvements to Developer Workflow and Documentation
+        </h1>
+
+        <p class="text-lg mt-6 font-light md:max-w-[960px] text-balance">
+          At <a
+            href="https://www.multitracks.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="underline">MultiTracks.com</a
+          >, one of the areas I focused on was streamlining and removing
+          bottlenecks in the front end developer's daily workflow. I was able to
+          achieve a <strong class="font-bold">63% reduction</strong>
+          in build times for all site assets, including JavaScript, CSS, and images.
+          I also improved the build process for individual TypeScript and SCSS files,
+          resulting in a <strong class="font-bold">80% and 37% reduction</strong
+          >
+          in compile times, respectively.<sup>[1]</sup>
+        </p>
+      </div>
+
+      <div class="w-full md:w-1/2">
+        <div class="w-full relative">
+          <h2 class="text-md text-center mb-4 font-bold">
+            Full Front End Build for All Site Assets (JS, CSS, Images, etc.)
+          </h2>
+
+          <div class="relative min-h-[512px] max-h-[512px]">
+            <canvas id="fullBuildChart"></canvas>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="flex flex-col gap-8 md:gap-16 mx-auto md:flex-row">
+      <div class="w-full">
+        <h2 class="text-dmd font-extrabold text-balance">
+          Development Insights
+        </h2>
+
+        <p class="text-lg mt-8 font-light text-pretty">
+          These improvements were achieved by implementing a new build system
+          leveraging the latest technologies and better utilizing watchers and
+          caching. One of the most significant improvements was the inclusion of
+          ESBuild into the Webpack build process, which was the primary
+          contributor to the overall reduction in build times for site building.
+          For development, I created a more fine-tuned watch system , which
+          required fewer files to be recompiled on each change, resulting in
+          faster feedback loops for developers. This change also removed the
+          overhead of manually managing the watch process and allowed developers
+          to focus on their work.
+        </p>
+
+        <p class="text-lg mt-4 font-light text-pretty">
+          Additionally, I created a new documentation pipeline that allowed for
+          quicker onboarding of new developers. I used this pipeline to onboard
+          and train two junior developers, allowing them to quickly contribute
+          to the codebase in a meaningful way.
+        </p>
+      </div>
+
+      <div class="w-full">
+        <h2 class="text-dsm font-extrabold text-balance">
+          Technology and Focus Areas
+        </h2>
+
+        <div class="mt-8">
+          <TechStack
+            stack="Main Technologies"
+            technologies={["TypeScript", "SCSS", "Webpack", "Babel", "ESBuild"]}
+          />
+        </div>
+
+        <div class="mt-4">
+          <TechStack
+            stack="Focus Areas"
+            technologies={[
+              "Front End Development",
+              "Build Systems",
+              "Documentation",
+            ]}
+          />
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="text-dmd font-extrabold text-balance">
+        More Benchmark Results
+      </h2>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 mt-8">
+        <div class="w-full">
+          <h3 class="text-md text-center mb-4 font-bold">
+            Compile Single TypeScript File (148KB) - <em>80% Improvement</em>
+          </h3>
+          <div class="min-h-[512px] max-h-[512px] relative">
+            <canvas id="jsFileChart"></canvas>
+          </div>
+        </div>
+
+        <div class="w-full">
+          <h3 class="text-md text-center mb-4 font-bold">
+            Compile Single SCSS File (323KB) - <em>37% Improvement</em>
+          </h3>
+          <div class="min-h-[512px] max-h-[512px] relative">
+            <canvas id="scssFileChart"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <p class="mt-4">
+        <span class="inline text-xs">[1]</span>
+
+        <a
+          href="https://docs.google.com/spreadsheets/d/1xzGvcZ7w_x7-_9iKYojH7FcFbVkz6h6a_JgAtx_tL_8/edit?usp=sharing"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-xs inline underline">Full Benchmark Data</a
+        >
+      </p>
+    </section>
+  </main>
+
+  <script>
+    import Chart, {
+      type ChartConfiguration,
+      type ChartData,
+    } from "chart.js/auto";
+
+    class ChartManager {
+      private static readonly COLORS = [
+        { bg: "rgba(255, 99, 132, 0.5)", border: "rgba(255, 99, 132, 1)" },
+        { bg: "rgba(54, 162, 235, 0.2)", border: "rgba(54, 162, 235, 1)" },
+      ];
+
+      private static readonly COMMON_CONFIG: Omit<
+        ChartConfiguration<"bar", number[], string>,
+        "data"
+      > = {
+        type: "bar",
+        options: {
+          scales: {
+            x: {
+              ticks: {
+                font: {
+                  size: 14,
+                  weight: "bold",
+                },
+              },
+            },
+            y: {
+              beginAtZero: true,
+              ticks: {
+                callback: (value) => value + "s",
+              },
+            },
+          },
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            tooltip: {
+              callbacks: {
+                label: (tooltipItem) =>
+                  "Average time: " + tooltipItem.formattedValue + "s",
+              },
+            },
+          },
+        },
+      };
+
+      constructor() {
+        Chart.defaults.color = "#fff";
+        Chart.defaults.borderColor = "rgba(255, 255, 255, 0.2)";
+      }
+
+      private createDataset(label: string, data: number[], colorIndex: number) {
+        return {
+          label,
+          data,
+          backgroundColor: ChartManager.COLORS[colorIndex].bg,
+          borderColor: ChartManager.COLORS[colorIndex].border,
+          borderWidth: 1,
+        };
+      }
+
+      createChart(canvasId: string, oldData: number, newData: number) {
+        const ctx = (
+          document.getElementById(canvasId) as HTMLCanvasElement | null
+        )?.getContext("2d");
+        if (ctx) {
+          const chartData: ChartData<"bar", number[], string> = {
+            labels: ["Average Time to Complete"],
+            datasets: [
+              this.createDataset("Old Process", [oldData], 0),
+              this.createDataset("New Process", [newData], 1),
+            ],
+          };
+
+          new Chart(ctx, {
+            ...ChartManager.COMMON_CONFIG,
+            data: chartData,
+          });
+        } else {
+          console.error(`Could not find canvas element: ${canvasId}`);
+        }
+      }
+    }
+
+    // Usage
+    const chartManager = new ChartManager();
+
+    chartManager.createChart("fullBuildChart", 114.6, 41.6);
+
+    chartManager.createChart("jsFileChart", 11.3, 2.2288);
+
+    chartManager.createChart("scssFileChart", 3.236, 2.0244);
+  </script>
+</Layout>
