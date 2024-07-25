@@ -10,300 +10,250 @@ import TechStack from "@components/TechStack.astro";
 import SoftSkill from "@components/SoftSkill.astro";
 
 import brady from "../images/brady-2.jpg";
-
-export interface IProject {
-  title: string;
-  description: string;
-  imagePath: string;
-  projectLink?: string;
-  learnMoreLink?: string;
-}
-
-export const projects: IProject[] = [
-  {
-    title: "Semper Liberi",
-    description:
-      "I developed a significant renovation of a West Virginia based non-profit organization, Semper Liberi's website, incorporating the latest web development technology. The website now features a cutting-edge design and an enhanced user experience, improving its aesthetic appeal and offering a more efficient and user-friendly experience for visitors. The website also includes a yearly golf tournament registration form and a donation page, which has increased the organization's online presence and revenue.",
-    imagePath: "/src/images/projects/semper-li-project.png",
-    projectLink: "https://semperli.org",
-  },
-  {
-    title: "Big I Illinois Website Redesign and Storyblok CMS Integration",
-    description:
-      "I was the main developer on the Big I Illinois website redesign, integrating the Storyblok CMS to provide a more user-friendly and efficient experience for the client. I worked closely with the project manager to ensure the design was implemented to specifications. Together we delivered a high-quality product that met and exceeded the client's expectations. One of the things I would like to highlight is the use of the Next.js App Router which takes advantage of ISR to provide a fast and up-to-date experience for the user as soon as content is updated in the CMS without requiring a full rebuild.",
-    imagePath: "/src/images/projects/big-i-project.png",
-    projectLink: "https://www.ilbigi.org",
-  },
-  {
-    title: "Streaming License and Auto Reporting Integration",
-    description:
-      "I was a part of the frontend implementation, which included a product page and third-party API integration for importing setlists from Planning Center. By using Vue.js, I enhanced the user experience of the setlist import flow, making it more modern and responsive compared to the previous experience using the legacy .NET Web Forms technology.",
-    imagePath: "/src/images/projects/streaming-project.png",
-    projectLink: "https://www.multitracks.com/products/churchstreaminglicense/",
-  },
-  {
-    title: "Musician's Practice App with Looping and Instrument Isolation",
-    description:
-      "I developed a new feature for the RehearsalMix Player that enables custom song arrangements in the ChartBuilder app. I tackled iOS WebAudio API challenges to support large audio files efficiently with low latency and smooth rearrangement. This feature received positive feedback and significantly reduced data caching issues, resolving crashing problems.",
-    imagePath: "/src/images/projects/practice-app-project.png",
-    projectLink: "https://www.multitracks.com/rehearsalmix/",
-  },
-  {
-    title: "Monorepo and Shared Component Library",
-    description:
-      "I contributed by implementing a monorepo and shared component library, enhancing our development process and shortening the timeframe for implementing new features in our client's sites. I helped to conceptualize and design the framework for various projects that would utilize these packages. This shared component library has elevated the consistency and quality of our codebase, while the monorepo has simplified project management and maintenance",
-    imagePath: "/src/images/projects/project-3.png",
-  },
-  {
-    title: "Improved Developer Workflow and Documentation",
-    description:
-      "I focused on streamlining and removing obstacles from our development team's workflow. Adopting a new build system improved our build and TypeScript file speeds. I also enhanced our documentation for a more productive environment. These changes resulted in a 2x to 4x decrease in build times for TypeScript, asset bundling, and Sass files. The improved documentation led to a reduction in the time it takes for new developers to become productive on the project.",
-    imagePath: "/src/images/projects/project-2.png",
-    learnMoreLink: "/projects/developer-workflow",
-  },
-  {
-    title: "Contributions to Open Source Projects",
-    description:
-      "I contributed to open source projects, including Elastic UI and SVG-Sprite, showcasing my passion for software development and a commitment to improving the web for everyone. I'm continuously seeking ways to support other open source projects and make a positive impact on the software development community.",
-    imagePath: "/src/images/projects/project-5.png",
-  },
-];
+import Icon from "@components/Icon.astro";
+import { projects } from "src/data/projects";
 ---
 
-<Layout title="Brady Blair | Full Stack Web Engineer">
-  <main class="flex flex-col gap-y-16 sm:gap-y-32 mt-8 sm:mt-16">
-    <!-- Header -->
-    <section>
-      <h1
-        class="text-dmd md:text-dlg font-extrabold text-center mx-auto text-balance"
-      >
-        Crafting Beautiful User Experiences with Expert Full Stack Development
-      </h1>
+<Layout>
+  <!-- Header -->
+  <section>
+    <h1
+      class="text-dmd md:text-dlg font-extrabold text-center mx-auto text-balance"
+    >
+      Crafting Beautiful User Experiences with Expert Full Stack Development
+    </h1>
 
-      <p
-        class="text-lg text-center mt-6 md:text-xl font-light max-w-[768px] md:max-w-[960px] mx-auto text-pretty"
-      >
-        I have a passion for creating visually appealing and intuitive websites
-        and applications. I bring a unique blend of technical expertise and
-        creative vision to each project, delivering high-quality results that
-        meet and exceed expectations.
-      </p>
-    </section>
+    <p
+      class="text-lg text-center mt-6 md:text-xl font-light max-w-[768px] md:max-w-[960px] mx-auto text-pretty"
+    >
+      I have a passion for creating visually appealing and intuitive websites
+      and applications. I bring a unique blend of technical expertise and
+      creative vision to each project, delivering high-quality results that meet
+      and exceed expectations.
+    </p>
+  </section>
 
-    <!-- About Me -->
-    <section class="flex flex-col items-center sm:flex-row" id="about">
-      <div class="flex flex-col items-center">
-        <div
-          class="rounded-full w-[232px] h-[232px] bg-white flex items-center justify-center"
-        >
-          <Image
-            src={brady}
-            alt="Brady Blair"
-            class="rounded-full max-w-[224px]"
-            width="224"
-            height="224"
-            loading="eager"
-            densities={[1, 1.5]}
-            quality={95}
-          />
-        </div>
-
-        <Socials />
-      </div>
-
-      <article class="mt-12 sm:ml-10 md:ml-20 sm:mt-0">
-        <h2 class="text-dsm font-bold">About Me</h2>
-
-        <div
-          class="flex flex-col gap-4 md:gap-8 md:mt-4 md:flex-row text-pretty"
-        >
-          <p class="mt-4 md:mt-0 md:w-1/2">
-            Hello, my name is <b>Brady Blair</b>. I'm a tech-savvy engineer
-            based on the east coast with my amazing
-            <em
-              >(<a
-                class="underline hover:text-gray-200 transition-all duration-300 ease-in-out"
-                href="https://sarahrose.dev"
-                target="_blank"
-                rel="noopener noreferrer">and also tech-savvy</a
-              >)</em
-            > wife, <b>Sarah Rose</b> and our 6 cats: <b>Miso</b>, <b>Mew Mew</b
-            >, <b>Saki</b>, <b>Kimchi</b>, <b>Genki</b>, and <b>Taro</b> (=^._.^=)
-            ᵐᵉᵒʷˎˊ˗
-
-            <br />
-            <br />
-
-            After graduating college I followed my passion for technology and
-            engineering, which led me to a career in the LED screen industry.
-            However, in late 2019, I discovered my love for programming and have
-            been hooked creating websites and applications ever since.
-          </p>
-
-          <p class="mt-4 md:mt-0 md:w-1/2">
-            When I'm not coding, I like to spend time with my wife and our cats,
-            play video games, and watch competive e-sports (Counter Strike and
-            Super Smash Bros. Melee).
-
-            <br /><br />
-
-            I enjoy <b>creating and discovering new things</b>, particularly
-            when they involve
-            <b>technology and programming</b>. So, let's nerd out and create
-            something <b>awesome</b>
-            together!
-          </p>
-        </div>
-      </article>
-    </section>
-
-    <!-- Projects -->
-    <section id="projects">
-      <SectionHeader
-        title="Featured Projects"
-        description="Transforming ideas into tangible sites, solutions, and products, here are some of the projects I am proud to have contributed to."
-      />
-
-      <ol class="mt-12">
-        {
-          projects.map(
-            (
-              { title, description, imagePath, projectLink, learnMoreLink },
-              index,
-            ) => {
-              return (
-                <Project
-                  index={index + 1}
-                  title={title}
-                  description={description}
-                  imagePath={imagePath}
-                  alt={title}
-                  projectLink={projectLink}
-                  learnMoreLink={learnMoreLink}
-                />
-              );
-            },
-          )
-        }
-      </ol>
-    </section>
-
-    <!-- Hard Skills -->
-    <section id="skills">
-      <SectionHeader
-        title="Technical Proficiencies"
-        description="Keeping up with the fast-paced web development ecosystem, one technology at a time."
-      />
-
-      <div class="font-mono mt-12 flex flex-col gap-y-8">
-        <TechStack
-          stack="Programming, Markup, Style, and Query Languages"
-          technologies={[
-            "TypeScript",
-            "JavaScript",
-            "HTML5",
-            "CSS3",
-            "SQL",
-            "C#",
-            "Ruby",
-            "GraphQL",
-            "PHP",
-          ]}
-        />
-
-        <TechStack
-          stack="Frontend & Backend Technologies"
-          technologies={[
-            "React",
-            "Next.js",
-            "Nuxt.js",
-            "Vue.js",
-            "Astro",
-            "Vite",
-            "Ruby on Rails",
-            "Node.js",
-            "Express",
-            "Tailwind",
-            "Sass",
-            ".NET",
-          ]}
-        />
-
-        <TechStack
-          stack="Databases, Services, CMS, and APIs"
-          technologies={[
-            "PostgreSQL",
-            "Azure",
-            "Microsoft SQL Server",
-            "Supabase",
-            "Firebase",
-            "RESTful APIs",
-            "GraphQL APIs",
-            "Storyblok CMS",
-            "Stripe",
-            "OpenAI",
-            "AWS (Lambda, S3, etc.)",
-          ]}
-        />
-
-        <TechStack
-          stack="Technical and Other Tools"
-          technologies={[
-            "GitHub",
-            "GitLab",
-            "Bitbucket",
-            "CI/CD",
-            "Git",
-            "Netlify",
-            "Vercel",
-            "Monorepos",
-            "PWAs",
-            "Docker",
-            "Kubernetes",
-            "NPM",
-            "Yarn",
-            "Webpack",
-            "Babel",
-            "Testing Frameworks (Jest, Cypress, Testing Library, Vitest)",
-          ]}
-        />
-      </div>
-    </section>
-
-    <!-- Soft Skills -->
-    <section>
-      <SectionHeader
-        title="The Finishing Touches"
-        description="All of this is encompassed by a love of collaboration and a desire to iterate."
-      />
-
+  <!-- About Me -->
+  <section class="flex flex-col items-center sm:flex-row" id="about">
+    <div class="flex flex-col items-center">
       <div
-        class="flex flex-col gap-y-12 mt-12 sm:flex-row sm:gap-x-8 items-center md:gap-y-16"
+        class="rounded-full w-[232px] h-[232px] bg-white flex items-center justify-center"
       >
-        <SoftSkill
-          title="Communication"
-          description="I express technical concepts clearly and concisely, with a passion for documentation."
-          icon="message-chat-circle"
-        />
-
-        <SoftSkill
-          title="Creativity"
-          description="I love thinking outside-the-box, to build engaging and user-friendly experiences."
-          icon="palette"
-        />
-
-        <SoftSkill
-          title="Attention to Detail"
-          description="I deliver complete work and ensure implementation of the design to specifications."
-          icon="glasses"
-        />
-
-        <SoftSkill
-          title="Problem Solving"
-          description="I enjoy the challenge of researching and testing to find an effective solution."
-          icon="puzzle-piece"
+        <Image
+          src={brady}
+          alt="Brady Blair"
+          class="rounded-full max-w-[224px]"
+          width="224"
+          height="224"
+          loading="eager"
+          densities={[1, 1.5]}
+          quality={95}
         />
       </div>
-    </section>
-  </main>
+
+      <Socials />
+    </div>
+
+    <article class="mt-12 sm:ml-10 md:ml-20 sm:mt-0">
+      <h2 class="text-dsm font-bold">About Me</h2>
+
+      <div class="flex flex-col gap-4 md:gap-8 md:mt-4 md:flex-row text-pretty">
+        <p class="mt-4 md:mt-0 md:w-1/2">
+          Hello, my name is <b>Brady Blair</b>. I'm an engineer based on the
+          east coast with my amazing
+          <em
+            >(<a
+              class="underline hover:text-gray-200 transition-all duration-300 ease-in-out"
+              href="https://sarahrose.dev"
+              target="_blank"
+              rel="noopener noreferrer">and also tech-savvy</a
+            >)</em
+          > wife, <b>Sarah Rose</b> and our 6 cats: <b>Miso</b>, <b>Mew Mew</b>, <b
+            >Saki</b
+          >, <b>Kimchi</b>, <b>Genki</b>, and <b>Taro</b> (=^._.^=) ᵐᵉᵒʷˎˊ˗
+
+          <br />
+          <br />
+
+          After graduating college I followed my passion for engineering and
+          technology , which led me to a career in the large format LED screen
+          industry. However, in late 2019, I discovered my love for programming
+          and have been hooked creating websites and applications ever since.
+        </p>
+
+        <p class="mt-4 md:mt-0 md:w-1/2">
+          When I'm not coding, I like to spend time with my wife and our cats,
+          play video games, and watch competive e-sports (Counter Strike and
+          Super Smash Bros. Melee).
+
+          <br /><br />
+
+          I enjoy <b>creating and discovering new things</b>, particularly when
+          they involve
+          <b>technology and programming</b>. So, let's nerd out and create
+          something <b>awesome</b>
+          together!
+        </p>
+      </div>
+    </article>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects">
+    <SectionHeader
+      title="Featured Projects"
+      description="Transforming ideas into tangible sites, solutions, and products, here are some of the projects I am proud to have contributed to."
+    />
+
+    <a
+      href="/projects"
+      class="inline-flex mt-2 gap-1 items-center font-bold hover:underline text-gray-100 transition-all ease-in-out duration-200 bold"
+    >
+      View all projects
+      <div class="w-5 h-5">
+        <Icon icon="right-arrow" />
+      </div>
+    </a>
+
+    <ol class="mt-12">
+      {
+        projects.map(
+          (
+            { title, description, imagePath, projectLink, learnMoreLink },
+            index,
+          ) => {
+            return (
+              <Project
+                index={index + 1}
+                title={title}
+                description={description}
+                imagePath={imagePath}
+                alt={title}
+                projectLink={projectLink}
+                learnMoreLink={learnMoreLink}
+              />
+            );
+          },
+        )
+      }
+    </ol>
+  </section>
+
+  <!-- Hard Skills -->
+  <section id="skills">
+    <SectionHeader
+      title="Technical Proficiencies"
+      description="Keeping up with the fast-paced web development ecosystem, one technology at a time."
+    />
+
+    <div class="font-mono mt-12 flex flex-col gap-y-8">
+      <TechStack
+        stack="Programming, Markup, Style, and Query Languages"
+        technologies={[
+          "TypeScript",
+          "JavaScript",
+          "HTML5",
+          "CSS3",
+          "SQL",
+          "C#",
+          "Ruby",
+          "GraphQL",
+          "PHP",
+        ]}
+      />
+
+      <TechStack
+        stack="Frontend & Backend Technologies"
+        technologies={[
+          "React",
+          "Next.js",
+          "Nuxt.js",
+          "Vue.js",
+          "Astro",
+          "Vite",
+          "Ruby on Rails",
+          "Node.js",
+          "Express",
+          "Tailwind",
+          "Sass",
+          ".NET",
+        ]}
+      />
+
+      <TechStack
+        stack="Databases, Services, CMS, and APIs"
+        technologies={[
+          "PostgreSQL",
+          "Azure",
+          "Microsoft SQL Server",
+          "Supabase",
+          "Firebase",
+          "RESTful APIs",
+          "GraphQL APIs",
+          "Storyblok CMS",
+          "Stripe",
+          "OpenAI",
+          "AWS (Lambda, S3, etc.)",
+        ]}
+      />
+
+      <TechStack
+        stack="Technical and Other Tools"
+        technologies={[
+          "GitHub",
+          "GitLab",
+          "Bitbucket",
+          "CI/CD",
+          "Git",
+          "Netlify",
+          "Vercel",
+          "Monorepos",
+          "PWAs",
+          "Docker",
+          "Kubernetes",
+          "NPM",
+          "Yarn",
+          "Webpack",
+          "Babel",
+          "Testing Frameworks (Jest, Cypress, Testing Library, Vitest)",
+        ]}
+      />
+    </div>
+  </section>
+
+  <!-- Soft Skills -->
+  <section>
+    <SectionHeader
+      title="The Finishing Touches"
+      description="All of this is encompassed by a love of collaboration and a desire to iterate."
+    />
+
+    <div
+      class="flex flex-col gap-y-12 mt-12 sm:flex-row sm:gap-x-8 items-center md:gap-y-16"
+    >
+      <SoftSkill
+        title="Communication"
+        description="I express technical concepts clearly and concisely, with a passion for documentation."
+        icon="message-chat-circle"
+      />
+
+      <SoftSkill
+        title="Creativity"
+        description="I love thinking outside-the-box, to build engaging and user-friendly experiences."
+        icon="palette"
+      />
+
+      <SoftSkill
+        title="Attention to Detail"
+        description="I deliver complete work and ensure implementation of the design to specifications."
+        icon="glasses"
+      />
+
+      <SoftSkill
+        title="Problem Solving"
+        description="I enjoy the challenge of researching and testing to find an effective solution."
+        icon="puzzle-piece"
+      />
+    </div>
+  </section>
 </Layout>

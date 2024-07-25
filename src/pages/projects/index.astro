@@ -2,59 +2,54 @@
 import Layout from "@layouts/Layout.astro";
 
 import SectionHeader from "@components/SectionHeader.astro";
-import Project from "@components/Project.astro";
-import { projects } from "@pages/index.astro";
+import ProjectSimpleCard from "@components/ProjectSimpleCard.astro";
+import { projects } from "@/data/projects";
 ---
 
-<Layout title="Brady Blair | Full Stack Web Engineer">
-  <main class="flex flex-col gap-y-16 sm:gap-y-32 mt-8 sm:mt-16">
-    <!-- Header -->
-    <section>
-      <h1
-        class="text-dmd md:text-dlg font-extrabold text-center mx-auto text-balance"
-      >
-        Projects I Have Contributed To and Built
-      </h1>
+<Layout
+  title="Brady Blair | Projects"
+  ogTitle="Brady Blair | Projects"
+  description="Here are some of the projects I have worked on. Each project has been a unique opportunity to learn and grow as a developer. I am proud of the work I have done and the impact it has had on the people who use these products."
+  canonical="https://www.bradyblair.com/projects"
+>
+  <!-- Header -->
+  <section>
+    <h1
+      class="text-dmd md:text-dlg font-extrabold text-center mx-auto text-balance"
+    >
+      Projects I Have Contributed To and Built
+    </h1>
 
-      <p
-        class="text-lg text-center mt-6 md:text-xl font-light max-w-[768px] md:max-w-[960px] mx-auto text-pretty"
-      >
-        Here are some of the projects I have worked on. Each project has been a
-        unique opportunity to learn and grow as a developer. I am proud of the
-        work I have done and the impact it has had on the people who use these
-        products.
-      </p>
-    </section>
+    <p
+      class="text-lg text-center mt-6 md:text-xl font-light max-w-[768px] md:max-w-[960px] mx-auto text-pretty"
+    >
+      Here are some of the projects I have worked on. Each project has been a
+      unique opportunity to learn and grow as a developer. I am proud of the
+      work I have done and the impact it has had on the people who use these
+      products.
+    </p>
+  </section>
 
-    <!-- Projects -->
-    <section id="projects">
-      <SectionHeader
-        title="From Concepts to Creation"
-        description="Transforming ideas into game-changing solutions, here are some of the projects I am proud to have contributed to."
-      />
+  <!-- Projects -->
+  <section id="projects">
+    <SectionHeader
+      title="From Concepts to Creation"
+      description="Transforming ideas into game-changing solutions, here are some of the projects I am proud to have contributed to."
+    />
 
-      <ol class="mt-12">
-        {
-          projects.map(
-            (
-              { title, description, imagePath, projectLink, learnMoreLink },
-              index,
-            ) => {
-              return (
-                <Project
-                  index={index + 1}
-                  title={title}
-                  description={description}
-                  imagePath={imagePath}
-                  alt={title}
-                  projectLink={projectLink}
-                  learnMoreLink={learnMoreLink}
-                />
-              );
-            },
-          )
-        }
-      </ol>
-    </section>
-  </main>
+    <ol class="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      {
+        projects.map(({ title, description, projectLink, learnMoreLink }) => {
+          return (
+            <ProjectSimpleCard
+              title={title}
+              description={description}
+              projectLink={projectLink}
+              learnMoreLink={learnMoreLink}
+            />
+          );
+        })
+      }
+    </ol>
+  </section>
 </Layout>

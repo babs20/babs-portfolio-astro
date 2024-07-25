@@ -1,0 +1,51 @@
+---
+import type { IProject } from "@/data/projects";
+import Icon from "@components/Icon.astro";
+
+export interface Props extends Omit<IProject, "imagePath"> {}
+
+const { title, description, projectLink, learnMoreLink } = Astro.props;
+---
+
+<div
+  class="border-solid border-white border text-white rounded-lg shadow-lg overflow-hidden p-6 flex flex-col justify-between"
+>
+  <div>
+    <h3 class="text-xl font-bold mb-4 text-balance">{title}</h3>
+    <p class="text-muted-foreground line-clamp-3">
+      {description}
+    </p>
+  </div>
+
+  <div class="flex gap-6 items-center mt-8">
+    {
+      projectLink && (
+        <a
+          href={projectLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex gap-2 items-center font-bold text-sm hover:underline text-gray-100 transition-all ease-in-out duration-200 bold"
+        >
+          View Project
+          <div class="w-4 h-4">
+            <Icon icon="external-link" />
+          </div>
+        </a>
+      )
+    }
+
+    {
+      learnMoreLink && (
+        <a
+          href={learnMoreLink}
+          class="inline-flex gap-1 items-center font-bold text-sm hover:underline text-gray-100 transition-all ease-in-out duration-200 bold"
+        >
+          Learn More
+          <div class="w-5 h-5">
+            <Icon icon="right-arrow" />
+          </div>
+        </a>
+      )
+    }
+  </div>
+</div>
