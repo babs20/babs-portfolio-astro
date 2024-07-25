@@ -9,7 +9,7 @@ import partytown from "@astrojs/partytown";
 export default defineConfig({
   site: 'https://www.bradyblair.com',
   integrations: [tailwind(), sitemap(), AstroPWA({
-    mode: import.meta.env.PROD ? 'production' : 'development',
+    mode: 'production',
     base: '/',
     scope: '/',
     includeAssets: ['favicon.svg'],
@@ -49,7 +49,7 @@ export default defineConfig({
   ],
   output: "static",
   prefetch: {
-    'prefetchAll': true
+    'prefetchAll': true,
   },
   build: {
     inlineStylesheets: 'always'
