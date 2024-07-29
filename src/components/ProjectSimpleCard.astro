@@ -4,11 +4,12 @@ import Icon from "@components/Icon.astro";
 
 export interface Props extends Omit<IProject, "imagePath"> {}
 
-const { title, description, projectLink, learnMoreLink } = Astro.props;
+const { title, description, projectLink, learnMoreLink, projectLinkText } =
+  Astro.props;
 ---
 
 <div
-  class="border-solid border-white border text-white rounded-lg shadow-lg overflow-hidden p-6 flex flex-col justify-between"
+  class="border-solid border-white border rounded-lg shadow-lg text-white overflow-hidden p-6 flex flex-col justify-between bg-white/5 backdrop-blur-md"
 >
   <div>
     <h3 class="text-xl font-bold mb-4 text-balance">{title}</h3>
@@ -26,7 +27,7 @@ const { title, description, projectLink, learnMoreLink } = Astro.props;
           rel="noopener noreferrer"
           class="inline-flex gap-2 items-center font-bold text-sm hover:underline text-gray-100 transition-all ease-in-out duration-200 bold"
         >
-          View Project
+          {projectLinkText || "View Project"}
           <div class="w-4 h-4">
             <Icon icon="external-link" />
           </div>

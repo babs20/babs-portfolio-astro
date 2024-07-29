@@ -46,6 +46,7 @@ import { projects } from "src/data/projects";
           width="224"
           height="224"
           loading="eager"
+          fetchpriority="high"
           densities={[1, 1.5]}
           quality={95}
         />
@@ -119,9 +120,20 @@ import { projects } from "src/data/projects";
       {
         projects.map(
           (
-            { title, description, imagePath, projectLink, learnMoreLink },
+            {
+              title,
+              description,
+              imagePath,
+              projectLink,
+              learnMoreLink,
+              projectLinkText,
+            },
             index,
           ) => {
+            if (!imagePath) {
+              return null;
+            }
+
             return (
               <Project
                 index={index + 1}
@@ -131,6 +143,7 @@ import { projects } from "src/data/projects";
                 alt={title}
                 projectLink={projectLink}
                 learnMoreLink={learnMoreLink}
+                projectLinkText={projectLinkText}
               />
             );
           },
