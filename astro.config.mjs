@@ -7,7 +7,7 @@ import partytown from "@astrojs/partytown";
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://www.bradyblair.com',
+  site: 'https://www.bradyblair.dev',
   integrations: [tailwind(), sitemap(), AstroPWA({
     mode: 'production',
     base: '/',
