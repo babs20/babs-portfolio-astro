@@ -1,5 +1,0 @@
-[[redirects]]
-  from = "/*"
-  to = "https://www.bradyblair.dev/:splat"
-  status = 301
-  force = true
