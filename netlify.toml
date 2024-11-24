@@ -1,0 +1,5 @@
+[[redirects]]
+  from = "https://www.bradyblair.com/*"
+  to = "https://www.bradyblair.dev/:splat"
+  status = 301
+  force = true
