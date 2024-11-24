@@ -2,7 +2,6 @@ import { defineConfig } from "astro/config";
 import tailwind from "@astrojs/tailwind";
 import sitemap from "@astrojs/sitemap";
 import AstroPWA from '@vite-pwa/astro';
-
 import partytown from "@astrojs/partytown";
 
 // https://astro.build/config
