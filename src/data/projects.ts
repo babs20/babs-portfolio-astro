@@ -69,6 +69,12 @@ export const projects: IProject[] = [
     projectLink: "https://github.com/stars/babs20/lists/oss",
     projectLinkText: "View My Open Source Contributions",
   },
+  {
+    title: "Incenter Documnentation Website",
+    description:
+      "I was the main developer of Incenter's centralized documentation website, built with Wiki.js to streamline team workflows and enhance feature documentation. Leveraging AWS technologies including RDS, ECS, ECR, and Route 53, I designed a scalable infrastructure to ensure reliability and performance. Additionally, I implemented a SAML integration by configuring our primary Django application as an Identity Provider (IdP), enabling seamless Single Sign-On (SSO) for users. This project has transformed how our team collaborates and documents, creating a unified, efficient system for managing knowledge.",
+    imagePath: "/src/images/projects/project-5.png",
+  }
 ];
 
 export const minorProjects: IProject[] = [
