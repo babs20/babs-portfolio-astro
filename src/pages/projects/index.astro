@@ -3,7 +3,7 @@ import Layout from "@layouts/Layout.astro";
 
 import SectionHeader from "@components/SectionHeader.astro";
 import ProjectSimpleCard from "@components/ProjectSimpleCard.astro";
-import { projects } from "@/data/projects";
+import { combinedProjects } from "@/data/projects";
 ---
 
 <Layout
@@ -37,9 +37,9 @@ import { projects } from "@/data/projects";
       description="Transforming ideas into game-changing solutions, here are some of the projects I am proud to have contributed to."
     />
 
-    <ol class="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+    <ol class="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-8">
       {
-        projects.map(
+        combinedProjects.map(
           ({
             title,
             description,
@@ -56,7 +56,7 @@ import { projects } from "@/data/projects";
                 projectLinkText={projectLinkText}
               />
             );
-          },
+          }
         )
       }
     </ol>

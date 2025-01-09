@@ -78,18 +78,20 @@ export const projects: IProject[] = [
 ];
 
 export const minorProjects: IProject[] = [
-  {
-    title: "Innovis Website Redesign",
-    description: "Redesigned the Innovis website using Astro. This project involved ",
-  },
+  // {
+  //   title: "Innovis Website Redesign",
+  //   description: "Redesigned the Innovis website using Astro. This project involved ",
+  // },
   {
     title: "Streaming License and Auto Reporting Integration",
     description:
       "I was a part of the frontend implementation, which included a product page and third-party API integration for importing setlists from Planning Center. By using Vue.js, I enhanced the user experience of the setlist import flow, making it more modern and responsive compared to the previous experience using the legacy .NET Web Forms technology.",
     projectLink: "https://www.multitracks.com/products/churchstreaminglicense/",
   },
-  {
-    title: "Partner Portal",
-    description: "Developed the frontend for a partner portal.",
-  }
+  // {
+  //   title: "Partner Portal",
+  //   description: "Developed the frontend for a partner portal.",
+  // }
 ];
+
+export const combinedProjects: IProject[] = [...projects, ...minorProjects];
