@@ -27,7 +27,7 @@ export const projects: IProject[] = [
     {
     title: "ASNT's NDTProTracker PWA",
     description:
-      "I was the solo developer from start to finish on ASNT's NDTProtracker, a PWA. I developed the application using React for the frontend, a Node.js API for the backend, and Supabase for the PSQL database. The app works completely offline, which allows users to track their data no matter where they are during testing. The application was designed to help NDT professionals track their training requirements and is a valuable tool for managing their training.",
+      "I was the solo developer from start to finish on ASNT's NDTProtracker, a PWA. I developed the application using React for the frontend, a Node.js API for the backend, and Supabase for the PostgreSQL database. The app works completely offline, which allows users to track their data no matter where they are during testing. The application was designed to help NDT professionals track their training requirements and is a valuable tool for managing their training.",
     imagePath: "/src/images/projects/ndt-protracker.png",
     projectLinkText: "Learn More About NDTProTracker",
     projectLink: "https://www.asnt.org/MajorSiteSections/Membership/NDT-ProTracker.aspx",
